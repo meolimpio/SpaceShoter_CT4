@@ -10,10 +10,14 @@ public class PlayerBehaviour : MonoBehaviour
     public float shotWaitingTime;
 
     private float shootingRange;
-
+    public Transform[] posicoesArmas;
+    private Transform armaAtual;
+    
     void Start()
     {
         this.shootingRange = 0;
+        this.armaAtual = this.posicoesArmas[0];
+        PointsController.Pontuacao = 0;
     }
 
     // Update is called once per frame
@@ -38,6 +42,14 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Atirar()
     {
-        Instantiate(this.shotPrefab, this.transform.position, Quaternion.identity);
+        Instantiate(this.shotPrefab, this.armaAtual.position, Quaternion.identity);
+        if(this.armaAtual == this.posicoesArmas[0])
+        {
+            this.armaAtual = this.posicoesArmas[1];
+        }
+        else
+        {
+            this.armaAtual = this.posicoesArmas[0];
+        }
     }
 }

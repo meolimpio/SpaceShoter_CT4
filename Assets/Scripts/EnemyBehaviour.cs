@@ -19,4 +19,10 @@ public class EnemyBehaviour : MonoBehaviour
     {
         this.rb.velocity = new Vector2(0, -this.speedY);
     }
+
+    public void Destruir()
+    {
+        PointsController.Pontuacao++;
+        Destroy(this.gameObject);
+    }
 }

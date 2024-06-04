@@ -22,7 +22,9 @@ public class ShootBehaviour : MonoBehaviour
         if(collider.CompareTag("Enemy"))
         {
             //Destroi o inimigo
-            Destroy(collider.gameObject);
+            EnemyBehaviour enemy = collider.GetComponent<EnemyBehaviour>();
+            enemy.Destruir();
+
             //Destroi o tiro
             Destroy(this.gameObject);
         }
