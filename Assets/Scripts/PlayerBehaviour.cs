@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
@@ -18,6 +19,7 @@ public class PlayerBehaviour : MonoBehaviour
         this.shootingRange = 0;
         this.armaAtual = this.posicoesArmas[0];
         PointsController.Pontuacao = 0;
+        PointsController.Vida = 5;
     }
 
     // Update is called once per frame
@@ -38,6 +40,10 @@ public class PlayerBehaviour : MonoBehaviour
         float speedY = (vertical * this.movementSpeed);
 
         this.rb.velocity = new Vector2(speedX, speedY);
+        //Aqui ce muda
+        if(PointsController.Vida == 0){
+            Destroy(this);
+        }
     }
 
     private void Atirar()
@@ -50,6 +56,15 @@ public class PlayerBehaviour : MonoBehaviour
         else
         {
             this.armaAtual = this.posicoesArmas[0];
+        }
+    }
+    //aqui se faz
+    public void OnTriggerEnter2D(Collider2D outroObjeto)
+    {
+        if(outroObjeto.CompareTag("Enemy")){
+            
+            PointsController.Vida--;
+            Destroy(outroObjeto.gameObject);
         }
     }
 }
