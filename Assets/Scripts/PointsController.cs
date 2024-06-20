@@ -6,6 +6,7 @@ public static class PointsController
 {
    private static int pontuacao; 
    private static int vida; 
+   private static GameOver telaFimJogo;
 
    public static int Pontuacao
    {
@@ -25,14 +26,15 @@ public static class PointsController
             // Debug.Log("Pontuação atual para" + Pontuacao);
         }
    }
+   
 
-   // aqui e paga
    public static int Vida
    {
         get
         {
             return vida;
         }
+        
         set
         {
             vida = value;
@@ -40,8 +42,9 @@ public static class PointsController
             {
                 vida = 0;
             }
+        }
 
             // Debug.Log("Vida atual " + vida);
-        }
-   }
+    }
 }
+
