@@ -9,15 +9,18 @@ public class GameOver : MonoBehaviour
 {
     public TextMeshProUGUI textoPontuacao;
     
+    public EnemyController enemyController;
     public void Exibir()
     {
         this.gameObject.SetActive(true);
         this.textoPontuacao.text = (PointsController.Pontuacao + "x");
+        enemyController.TurnOff();
     }
 
     public void Esconder()
     {
         this.gameObject.SetActive(false);
+        enemyController.TurnOn();
     }
 
     public void TentarNovamente()
