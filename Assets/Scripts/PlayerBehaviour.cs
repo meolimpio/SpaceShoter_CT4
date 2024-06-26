@@ -13,13 +13,15 @@ public class PlayerBehaviour : MonoBehaviour
     private float shootingRange;
     public Transform[] posicoesArmas;
     private Transform armaAtual;
+
+    public GameOver gameOver;
     
     void Start()
     {
         this.shootingRange = 0;
         this.armaAtual = this.posicoesArmas[0];
         PointsController.Pontuacao = 0;
-        PointsController.Vida = 5;
+        PointsController.Vida = 1;
     }
 
     // Update is called once per frame
@@ -42,7 +44,8 @@ public class PlayerBehaviour : MonoBehaviour
         this.rb.velocity = new Vector2(speedX, speedY);
         //Aqui ce muda
         if(PointsController.Vida == 0){
-            Destroy(this);
+            Destroy(this.gameObject);
+            gameOver.Exibir();
         }
     }
 
