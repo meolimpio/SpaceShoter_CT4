@@ -245,7 +245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &160638046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textoPontuacao: {fileID: 2111962526}
+  enemyController: {fileID: 244885814}
 --- !u!1 &232372109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,6 +1259,7 @@ MonoBehaviour:
   posicoesArmas:
   - {fileID: 144498780}
   - {fileID: 1177254282}
+  gameOver: {fileID: 160638047}
 --- !u!50 &1436708351
 Rigidbody2D:
   serializedVersion: 4

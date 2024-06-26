@@ -10,8 +10,16 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         this.elapsedTime = 0;
+        TurnOn();
     }
-
+    public void TurnOff()
+    {
+    this.enabled = false;
+    }
+    public void TurnOn()
+    {
+    this.enabled = true;
+    }
     // Update is called once per frame
     void Update()
     {
