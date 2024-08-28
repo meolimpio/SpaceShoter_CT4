@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5084985209749788125}
   - component: {fileID: 121714718635772008}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,6 +129,8 @@ MonoBehaviour:
   rb: {fileID: 4350494491317383283}
   minSpeed: 1
   maxSpeed: 2
+  vidas: 15
+  particulaExplosaoPrefab: {fileID: 7973599570256359735, guid: 5bc0ca071bdfac944abe3c15f3ac98d2, type: 3}
 --- !u!58 &121714718635772008
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -161,6 +163,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.014330268}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.28662503
+  m_Radius: 0.15643628

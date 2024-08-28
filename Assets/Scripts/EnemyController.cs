@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public EnemyBehaviour originalEnemy;
+    public EnemyBehaviour inimigo1;
+    public EnemyBehaviour inimigo2;
     private float elapsedTime;
     
     void Start()
@@ -35,8 +36,22 @@ public class EnemyController : MonoBehaviour
             float xPosition = Random.Range(minPosition.x, maxPosition.x);
             Vector2 enemyPosition = new Vector2(xPosition, maxPosition.y);
 
+            EnemyBehaviour prefabInimigo;
+
+            float chance = Random.Range(0f, 100f);
+
+            //20% de chance de spawnar o segundo inimigo
+            if(chance <=20)
+            {
+                prefabInimigo = this.inimigo2;
+            }
+            else
+            {
+                prefabInimigo = this.inimigo1;
+            }
+
             //Criar um novo inimigo
-            Instantiate(this.originalEnemy, enemyPosition, Quaternion.identity);
+            Instantiate(prefabInimigo, enemyPosition, Quaternion.identity);
         }
     }
 }

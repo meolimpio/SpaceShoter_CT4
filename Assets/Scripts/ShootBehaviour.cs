@@ -14,7 +14,16 @@ public class ShootBehaviour : MonoBehaviour
 
     void Update()
     {
+        Camera camera = Camera.main;
         
+        Vector3 posicaoCamera = camera.WorldToViewportPoint(this.transform.position);
+        
+        //Sai da tela na parte superior
+        if(posicaoCamera.y > 1)
+        {
+            //Destroi o tiro
+            Destroy(this.gameObject);
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collider)
@@ -23,7 +32,7 @@ public class ShootBehaviour : MonoBehaviour
         {
             //Destroi o inimigo
             EnemyBehaviour enemy = collider.GetComponent<EnemyBehaviour>();
-            enemy.Destruir();
+            enemy.ReceberDano();
 
             //Destroi o tiro
             Destroy(this.gameObject);
