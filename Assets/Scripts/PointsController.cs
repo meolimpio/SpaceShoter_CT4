@@ -24,6 +24,11 @@ public static class PointsController
             }
 
             // Debug.Log("Pontuação atual para" + Pontuacao);
+
+            if(pontuacao > MelhorPontuacao)
+            {
+                MelhorPontuacao = pontuacao;
+            }
         }
    }
    
@@ -46,5 +51,21 @@ public static class PointsController
 
             // Debug.Log("Vida atual " + vida);
     }
-}
 
+    public static int MelhorPontuacao
+    {
+        get
+        {
+            int melhorPontuacao = PlayerPrefs.GetInt("melhorPontuacao", 0);
+            return melhorPontuacao;
+        }
+
+        set
+        {
+            if(value > MelhorPontuacao)
+            {
+                PlayerPrefs.SetInt("melhorPontuacao", value);
+            }
+        }
+    }
+}

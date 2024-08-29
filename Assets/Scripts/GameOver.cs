@@ -8,12 +8,14 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     public TextMeshProUGUI textoPontuacao;
+    public TextMeshProUGUI textoMelhorPontuacao;
     
     public EnemyController enemyController;
     public void Exibir()
     {
         this.gameObject.SetActive(true);
         this.textoPontuacao.text = (PointsController.Pontuacao + "x");
+        this.textoMelhorPontuacao.text = (PointsController.MelhorPontuacao.ToString());
         enemyController.TurnOff();
     }
 
